@@ -8,7 +8,6 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] int timeToWait = 3;
     int currentSceneIndex;
 
-    // Start is called before the first frame update
     void Start()
     {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
