@@ -20,11 +20,6 @@ public class EnemySpawner : MonoBehaviour
         spawn = false;
     }
 
-    void Update()
-    {
-        
-    }
-
     void SpawnEnemy()
     {
         Instantiate(enemyPrefab, transform.position, Quaternion.identity);

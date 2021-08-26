@@ -50,9 +50,9 @@ TagManager:
   - name: Tower
     uniqueID: 2077427431
     locked: 0
-  - name: Tree
-    uniqueID: 812204519
-    locked: 0
   - name: Projectile
     uniqueID: 1572319857
+    locked: 0
+  - name: Tree
+    uniqueID: 812204519
     locked: 0
