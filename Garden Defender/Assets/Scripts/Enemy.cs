@@ -15,4 +15,9 @@ public class Enemy : MonoBehaviour
     {
         currentSpeed = speed;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+    }
 }
