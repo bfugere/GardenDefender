@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class TowerSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject tower;
+    Tower tower;
 
     void OnMouseDown()
     {
         SpawnTower(GetSquareClicked());
+    }
+
+    public void SetSelectedTower(Tower towerToSelect)
+    {
+        tower = towerToSelect;
     }
 
     private Vector2 GetSquareClicked()
@@ -28,6 +33,6 @@ public class TowerSpawner : MonoBehaviour
 
     void SpawnTower(Vector2 roundedPosition)
     {
-        GameObject newTower = Instantiate(tower, roundedPosition, Quaternion.identity) as GameObject;
+        Tower newTower = Instantiate(tower, roundedPosition, Quaternion.identity) as Tower;
     }
 }
