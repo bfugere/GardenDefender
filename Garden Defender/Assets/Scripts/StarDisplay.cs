@@ -20,6 +20,11 @@ public class StarDisplay : MonoBehaviour
         starText.text = currentStars.ToString();
     }
 
+    public bool HasEnoughStars(int amount)
+    {
+        return currentStars >= amount;
+    }
+
     public void AddStars(int amount)
     {
         currentStars += amount;
@@ -33,12 +38,5 @@ public class StarDisplay : MonoBehaviour
             currentStars -= amount;
             UpdateStarText();
         }
-        else
-            NotEnoughStarsMessage();
-    }
-
-    void NotEnoughStarsMessage()
-    {
-        throw new NotImplementedException();
     }
 }

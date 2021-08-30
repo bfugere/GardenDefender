@@ -8,12 +8,26 @@ public class TowerSpawner : MonoBehaviour
 
     void OnMouseDown()
     {
-        SpawnTower(GetSquareClicked());
+        // Spawn Tower
+        AttemptToPlaceTowerAt(GetSquareClicked());
     }
 
     public void SetSelectedTower(Tower towerToSelect)
     {
         tower = towerToSelect;
+    }
+
+    void AttemptToPlaceTowerAt(Vector2 gridPosition)
+    {
+        StarDisplay starDisplay = FindObjectOfType<StarDisplay>();
+        int towerCost = tower.GetStarCost();
+
+        // Spawn Tower
+        if (starDisplay.HasEnoughStars(towerCost))
+        {
+            SpawnTower(gridPosition);
+            starDisplay.RemoveStars(towerCost);
+        }
     }
 
     private Vector2 GetSquareClicked()
