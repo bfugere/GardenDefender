@@ -8,25 +8,21 @@ public class Shooting : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] GameObject gun;
 
+    Animator animator;
     EnemySpawner myLaneSpawner;
 
-    private void Start()
+    void Start()
     {
         SetLaneSpawner();
+        animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    void Update()
     {
-        if (IsEnemyInLane())
-        {
-            Debug.Log("Shoot");
-            // TODO: Change Animation State to Shooting
-        }
+        if (EnemyInSameLane())
+            animator.SetBool("isAttacking", true);
         else
-        {
-            Debug.Log("Wait");
-            // TODO: Change Animation State to Idle.
-        }
+            animator.SetBool("isAttacking", false);
     }
 
     void SetLaneSpawner()
@@ -35,14 +31,15 @@ public class Shooting : MonoBehaviour
 
         foreach (EnemySpawner spawner in spawners)
         {
+            // Checks if a tower is in the same lane as a spawner.
+            // "spawners" position - "towers" position should be <= 0
             bool IsCloseEnough = (Mathf.Abs(spawner.transform.position.y - transform.position.y) <= Mathf.Epsilon);
-
             if (IsCloseEnough)
                 myLaneSpawner = spawner;
         }
     }
 
-    bool IsEnemyInLane()
+    bool EnemyInSameLane()
     {
         if (myLaneSpawner.transform.childCount <= 0)
             return false;
