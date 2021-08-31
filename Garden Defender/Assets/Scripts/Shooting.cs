@@ -8,6 +8,8 @@ public class Shooting : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] GameObject gun;
 
+    EnemySpawner myLaneSpawner;
+
     private void Start()
     {
         SetLaneSpawner();
@@ -29,12 +31,23 @@ public class Shooting : MonoBehaviour
 
     void SetLaneSpawner()
     {
-        
+        EnemySpawner[] spawners = FindObjectsOfType<EnemySpawner>();
+
+        foreach (EnemySpawner spawner in spawners)
+        {
+            bool IsCloseEnough = (Mathf.Abs(spawner.transform.position.y - transform.position.y) <= Mathf.Epsilon);
+
+            if (IsCloseEnough)
+                myLaneSpawner = spawner;
+        }
     }
 
     bool IsEnemyInLane()
     {
-        
+        if (myLaneSpawner.transform.childCount <= 0)
+            return false;
+        else
+            return true;
     }
 
     public void Shoot()
