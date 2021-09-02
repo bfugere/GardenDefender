@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    // Cached Reference
+    Animator animator;
+
     float currentSpeed = 1f;
+    GameObject currentTarget;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -14,5 +23,11 @@ public class Enemy : MonoBehaviour
     public void SetMovementSpeed(float speed)
     {
         currentSpeed = speed;
+    }
+
+    public void Attack(GameObject target)
+    {
+        animator.SetBool("isAttacking", true);
+        currentTarget = target;
     }
 }
