@@ -18,7 +18,11 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.left * currentSpeed * Time.deltaTime);
+        UpdateAnimationState();
+    }
 
+    public void UpdateAnimationState()
+    {
         if (!currentTarget)
             animator.SetBool("isAttacking", false);
     }
