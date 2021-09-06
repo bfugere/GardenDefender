@@ -45,4 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpawnDelay: 1
   maxSpawnDelay: 20
-  enemyPrefab: {fileID: 3704312724309524253, guid: 03018a9c8d258e74fb14ea3c6a880934, type: 3}
+  enemyPrefabArray:
+  - {fileID: 1764098422201308631, guid: 6797db9ea7b4dbd4cb55c66de14d18f9, type: 3}
+  - {fileID: 3704312724309524253, guid: 03018a9c8d258e74fb14ea3c6a880934, type: 3}

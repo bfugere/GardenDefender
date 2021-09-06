@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] float minSpawnDelay = 1f;
     [SerializeField] float maxSpawnDelay = 5f;
-    [SerializeField] Enemy enemyPrefab;
+    [SerializeField] Enemy[] enemyPrefabArray;
 
     bool spawn = true;
 
@@ -22,7 +22,13 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Enemy newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity) as Enemy;
+        var enemyIndex = Random.Range(0, enemyPrefabArray.Length);
+        Spawn(enemyPrefabArray[enemyIndex]);
+    }
+
+    void Spawn(Enemy enemy)
+    {
+        Enemy newEnemy = Instantiate(enemy, transform.position, Quaternion.identity) as Enemy;
         newEnemy.transform.parent = transform;
     }
 }
