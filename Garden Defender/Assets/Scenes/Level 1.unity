@@ -541,6 +541,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 61889605, guid: 5ebe79cede44ece4e827dc4b3394a4b6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61889605, guid: 5ebe79cede44ece4e827dc4b3394a4b6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61889605, guid: 5ebe79cede44ece4e827dc4b3394a4b6, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 86811715, guid: 5ebe79cede44ece4e827dc4b3394a4b6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 86811715, guid: 5ebe79cede44ece4e827dc4b3394a4b6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 86811715, guid: 5ebe79cede44ece4e827dc4b3394a4b6, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2168762005492761179, guid: 5ebe79cede44ece4e827dc4b3394a4b6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
