@@ -15,8 +15,17 @@ public class EnemySpawner : MonoBehaviour
         while (spawn)
         {
             yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
-            SpawnEnemy();
+
+            if (spawn)
+            {
+                SpawnEnemy();
+            }
         }
+        spawn = false;
+    }
+
+    public void StopSpawning()
+    {
         spawn = false;
     }
 

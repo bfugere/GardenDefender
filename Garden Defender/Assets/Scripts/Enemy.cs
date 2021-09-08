@@ -10,6 +10,16 @@ public class Enemy : MonoBehaviour
     float currentSpeed = 1f;
     GameObject currentTarget;
 
+    void Awake()
+    {
+        FindObjectOfType<LevelController>().EnemySpawned();
+    }
+
+    void OnDestroy()
+    {
+        FindObjectOfType<LevelController>().EnemyKilled();
+    }
+
     private void Start()
     {
         animator = GetComponent<Animator>();
