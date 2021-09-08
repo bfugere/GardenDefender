@@ -56,3 +56,6 @@ TagManager:
   - name: Tree
     uniqueID: 812204519
     locked: 0
+  - name: Overlay
+    uniqueID: 2720834349
+    locked: 0
