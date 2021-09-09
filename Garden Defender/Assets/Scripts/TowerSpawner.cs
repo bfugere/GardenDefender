@@ -19,14 +19,17 @@ public class TowerSpawner : MonoBehaviour
 
     void AttemptToPlaceTowerAt(Vector2 gridPosition)
     {
-        StarDisplay starDisplay = FindObjectOfType<StarDisplay>();
-        int towerCost = tower.GetStarCost();
-
-        // Spawn Tower
-        if (starDisplay.HasEnoughStars(towerCost))
+        if (tower)
         {
-            SpawnTower(gridPosition);
-            starDisplay.RemoveStars(towerCost);
+            StarDisplay starDisplay = FindObjectOfType<StarDisplay>();
+            int towerCost = tower.GetStarCost();
+
+            // Spawn Tower
+            if (starDisplay.HasEnoughStars(towerCost))
+            {
+                SpawnTower(gridPosition);
+                starDisplay.RemoveStars(towerCost);
+            }
         }
     }
 
