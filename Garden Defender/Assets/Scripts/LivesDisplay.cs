@@ -7,13 +7,16 @@ using UnityEngine.SceneManagement;
 
 public class LivesDisplay : MonoBehaviour
 {
-    [SerializeField] int currentLives = 10;
+    [SerializeField] float startingLives = 3f;
     [SerializeField] int damage = 1;
+
+    float currentLives;
 
     Text livesText;
 
     void Start()
     {
+        currentLives = startingLives - PlayerPrefsController.GetDifficulty();
         livesText = GetComponent<Text>();
         UpdateLivesText();
     }
