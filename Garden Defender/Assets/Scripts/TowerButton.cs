@@ -1,10 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TowerButton : MonoBehaviour
 {
     [SerializeField] Tower towerPrefab;
+
+    void Start()
+    {
+        TowerCostLabels();
+    }
+
+    void TowerCostLabels()
+    {
+        Text costText = GetComponentInChildren<Text>();
+
+        if (!costText)
+            Debug.LogError(name + " has no cost text assigned to it.");
+        else
+            costText.text = towerPrefab.GetStarCost().ToString();
+    }
 
     private void OnMouseDown()
     {
