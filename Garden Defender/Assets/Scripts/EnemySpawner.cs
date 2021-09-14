@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] float minSpawnDelay = 1f;
-    [SerializeField] float maxSpawnDelay = 5f;
+    int minSpawnDelay;
+    int maxSpawnDelay;
     [SerializeField] Enemy[] enemyPrefabArray;
 
     bool spawn = true;
@@ -14,6 +14,8 @@ public class EnemySpawner : MonoBehaviour
     {
         while (spawn)
         {
+            CalculateDifficultySpawnRate();
+
             yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
 
             if (spawn)
@@ -39,5 +41,24 @@ public class EnemySpawner : MonoBehaviour
     {
         Enemy newEnemy = Instantiate(enemy, transform.position, Quaternion.identity) as Enemy;
         newEnemy.transform.parent = transform;
+    }
+
+    public void CalculateDifficultySpawnRate()
+    {
+        switch (PlayerPrefsController.GetDifficulty())
+        {
+            case 2:
+                minSpawnDelay = 1;
+                maxSpawnDelay = 5;
+                break;
+            case 1:
+                minSpawnDelay = 3;
+                maxSpawnDelay = 7;
+                break;
+            default:
+                minSpawnDelay = 5;
+                maxSpawnDelay = 10;
+                break;
+        }
     }
 }
