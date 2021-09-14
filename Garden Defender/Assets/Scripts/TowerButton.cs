@@ -16,11 +16,14 @@ public class TowerButton : MonoBehaviour
     void TowerCostLabels()
     {
         Text costText = GetComponentInChildren<Text>();
+        costText.text = towerPrefab.GetStarCost().ToString();
 
+        /*
         if (!costText)
             Debug.LogError(name + " has no cost text assigned to it.");
         else
             costText.text = towerPrefab.GetStarCost().ToString();
+        */
     }
 
     private void OnMouseDown()

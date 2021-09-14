@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    int minSpawnDelay;
-    int maxSpawnDelay;
+    float minSpawnDelay;
+    float maxSpawnDelay;
     [SerializeField] Enemy[] enemyPrefabArray;
 
     bool spawn = true;
@@ -48,12 +48,12 @@ public class EnemySpawner : MonoBehaviour
         switch (PlayerPrefsController.GetDifficulty())
         {
             case 2:
-                minSpawnDelay = 1;
-                maxSpawnDelay = 5;
+                minSpawnDelay *= .4f;
+                maxSpawnDelay *= .4f;
                 break;
             case 1:
-                minSpawnDelay = 3;
-                maxSpawnDelay = 7;
+                minSpawnDelay *= .8f;
+                maxSpawnDelay *= .8f;
                 break;
             default:
                 minSpawnDelay = 5;
