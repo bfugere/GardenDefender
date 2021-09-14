@@ -7,6 +7,8 @@ public class Shooting : MonoBehaviour
 {
     [SerializeField] GameObject projectile;
     [SerializeField] GameObject gun;
+    GameObject projectileParent;
+    const string PROJECTILE_PARENT_NAME = "Projectiles";
 
     Animator animator;
     EnemySpawner myLaneSpawner;
@@ -15,6 +17,7 @@ public class Shooting : MonoBehaviour
     {
         SetLaneSpawner();
         animator = GetComponent<Animator>();
+        CreateProjectileParent();
     }
 
     void Update()
@@ -23,6 +26,14 @@ public class Shooting : MonoBehaviour
             animator.SetBool("isAttacking", true);
         else
             animator.SetBool("isAttacking", false);
+    }
+
+    void CreateProjectileParent()
+    {
+        projectileParent = GameObject.Find(PROJECTILE_PARENT_NAME);
+
+        if (!projectileParent)
+            projectileParent = new GameObject(PROJECTILE_PARENT_NAME);
     }
 
     void SetLaneSpawner()
@@ -49,6 +60,7 @@ public class Shooting : MonoBehaviour
 
     public void Shoot()
     {
-        Instantiate(projectile, gun.transform.position, Quaternion.identity);
+        GameObject newProjectile = Instantiate(projectile, gun.transform.position, Quaternion.identity) as GameObject;
+        newProjectile.transform.parent = projectileParent.transform;
     }
 }

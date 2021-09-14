@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,21 @@ using UnityEngine;
 public class TowerSpawner : MonoBehaviour
 {
     Tower tower;
+    GameObject towerParent;
+    const string TOWER_PARENT_NAME = "Towers";
+
+    void Start()
+    {
+        CreateTowerParent();
+    }
+
+    void CreateTowerParent()
+    {
+        towerParent = GameObject.Find(TOWER_PARENT_NAME);
+
+        if (!towerParent)
+            towerParent = new GameObject(TOWER_PARENT_NAME);
+    }
 
     void OnMouseDown()
     {
@@ -51,5 +67,6 @@ public class TowerSpawner : MonoBehaviour
     void SpawnTower(Vector2 roundedPosition)
     {
         Tower newTower = Instantiate(tower, roundedPosition, Quaternion.identity) as Tower;
+        newTower.transform.parent = towerParent.transform;
     }
 }
