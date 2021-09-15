@@ -48,16 +48,16 @@ public class EnemySpawner : MonoBehaviour
         switch (PlayerPrefsController.GetDifficulty())
         {
             case 2:
-                minSpawnDelay *= .4f;
-                maxSpawnDelay *= .4f;
+                minSpawnDelay = 2f;
+                maxSpawnDelay = 4f;
                 break;
             case 1:
-                minSpawnDelay *= .8f;
-                maxSpawnDelay *= .8f;
+                minSpawnDelay = 4f;
+                maxSpawnDelay = 8f;
                 break;
             default:
-                minSpawnDelay = 5;
-                maxSpawnDelay = 10;
+                minSpawnDelay = 8f;
+                maxSpawnDelay = 16f;
                 break;
         }
     }

@@ -814,7 +814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 976739391, guid: 5ebe79cede44ece4e827dc4b3394a4b6, type: 3}
       propertyPath: levelTimer
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2168762005492761179, guid: 5ebe79cede44ece4e827dc4b3394a4b6, type: 3}
       propertyPath: m_Pivot.x
